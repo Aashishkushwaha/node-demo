@@ -1,0 +1,3 @@
+This is the text i am writing to file
+
+This is the text using append operation.
