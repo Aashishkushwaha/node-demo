@@ -2,7 +2,7 @@
   "name": "learning",
   "version": "1.0.0",
   "description": "",
-  "main": "math.js",
+  "main": "server.js",
   "dependencies": {
     "date-fns": "^2.27.0",
     "uuid": "^8.3.2"
