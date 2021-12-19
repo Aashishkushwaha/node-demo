@@ -1,0 +1,2 @@
+2021-12-18  18:12:09	0689cd30-daa7-4fe0-ab8b-feb887b4d8f5	/	Not allowed by CORS
+2021-12-18  18:12:54	657af41a-8a9d-4e13-8ad1-43a05edbbdef	Error	Not allowed by CORS
