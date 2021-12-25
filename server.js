@@ -2,28 +2,10 @@ const path = require("path");
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const corsOptions = require("./config/corsOptions");
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
 const PORT = process.env.PORT | 3500;
-
-// allow cors - Cross Origin Resource Sharing
-const whitelistOrigins = [
-  "https://www.yoursite.com",
-  "http://localhost:3000",
-  "http://localhost:3500", // we're using currently
-  "http://127.0.0.1:5000",
-];
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (whitelistOrigins.includes(origin) || !origin) {
-      // cb(errorParam, allowed)
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  optionsSuccessStatus: 200,
-};
 
 app.use(cors(corsOptions));
 
@@ -37,12 +19,9 @@ app.use(express.json());
 
 // middleware to serve static files
 app.use(express.static(path.join(__dirname, "/public")));
-// specify subdir to get access to static files
-app.use("/subdir", express.static(path.join(__dirname, "/public")));
 
 // routes
 app.use("/", require("./routes/root"));
-app.use("/subdir", require("./routes/subdir"));
 app.use("/employees", require("./routes/api/employees"));
 
 // router.use('/') => .use() doesn't accept regEx, it's mostly used for middlewares
