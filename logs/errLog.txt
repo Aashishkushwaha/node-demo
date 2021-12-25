@@ -1,2 +1,13 @@
 2021-12-18  18:12:09	0689cd30-daa7-4fe0-ab8b-feb887b4d8f5	/	Not allowed by CORS
 2021-12-18  18:12:54	657af41a-8a9d-4e13-8ad1-43a05edbbdef	Error	Not allowed by CORS
+2021-12-24  22:23:49	1b6b1e50-ffbb-4389-b535-0881f5e89981	Error	ENOENT: no such file or directory, stat '/Users/aashish_kushwaha/learning/node-learning/views/subdir/test.html'
+2021-12-24  22:25:04	9ff22e8f-9c81-4737-ae5c-6d400bb13c7e	Error	ENOENT: no such file or directory, stat '/Users/aashish_kushwaha/learning/node-learning/views/subdir/test.html'
+2021-12-24  22:25:12	32f95bd7-e212-4fbc-9f7e-2b89e58b3af4	Error	ENOENT: no such file or directory, stat '/Users/aashish_kushwaha/learning/node-learning/views/subdir/test.html'
+2021-12-24  22:33:32	b1e656fb-98b1-4048-aaa9-0dc7551cfdd2	Error	ENOENT: no such file or directory, stat '/Users/aashish_kushwaha/learning/node-learning/routes/views/new-page.html'
+2021-12-24  22:34:18	d8fbdeda-1a8c-4d14-9518-d19e87c49aa4	Error	ENOENT: no such file or directory, stat '/Users/aashish_kushwaha/learning/node-learning/routes/views/index.html'
+2021-12-24  22:34:31	2affa4c2-f03e-4cc6-8969-f8255275beff	ForbiddenError	Forbidden
+2021-12-24  22:34:52	5840780d-aae1-4492-875e-5b6d57ab7969	ForbiddenError	Forbidden
+2021-12-24  22:35:25	706b1f4b-669f-4fbe-b0e3-66548c0016c9	ForbiddenError	Forbidden
+2021-12-24  22:36:04	abb19ebc-3375-42be-a911-c22943170522	Error	ENOENT: no such file or directory, stat '/Users/aashish_kushwaha/learning/node-learning/routes/views/404.html'
+2021-12-24  22:44:48	a84cd95e-010a-4761-a45e-18e53036f736	Error	ENOENT: no such file or directory, stat '/Users/aashish_kushwaha/learning/views/404.html'
+2021-12-24  23:05:58	5d65b2b0-bb0e-4763-bd9b-64e5a1a2ba10	ReferenceError	employees is not defined

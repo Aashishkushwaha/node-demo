@@ -34,62 +34,26 @@ app.use(logger);
 app.use(express.urlencoded({ extended: false }));
 // middleware to handler json data
 app.use(express.json());
+
 // middleware to serve static files
 app.use(express.static(path.join(__dirname, "/public")));
+// specify subdir to get access to static files
+app.use("/subdir", express.static(path.join(__dirname, "/public")));
 
-app.get("^/$|index(.html)?", (req, res) => {
-  // first way to send file
-  res.sendFile(path.join(__dirname, "views", "index.html"));
-});
+// routes
+app.use("/", require("./routes/root"));
+app.use("/subdir", require("./routes/subdir"));
+app.use("/employees", require("./routes/api/employees"));
 
-app.get("/new-page(.html)?", (req, res) => {
-  // other way to send file to server
-  res.sendFile("./views/new-page.html", { root: __dirname });
-});
-
-app.get("/old-page(.html)?", (req, res) => {
-  // 301 - moved permanently
-  // 302 - a page has moved, but only temporarily
-  res.redirect(301, "/new-page"); // by default status will be 302;
-});
-
-// Route handlers
-app.get(
-  "/hello(.html)?",
-  (req, res, next) => {
-    console.log("attempted to load hello.html");
-    next();
-  },
-  (req, res) => {
-    res.send("Hello world for hello.html");
-  }
-);
-
-const one = (req, res, next) => {
-  console.log("one");
-  next();
-};
-const two = (req, res, next) => {
-  console.log("two");
-  next();
-};
-const three = (req, res) => {
-  console.log("three");
-  res.send("finished");
-};
-
-// app.get("/chain(.html)?", [one, two, three]);
-app.get("/chain(.html)?", one, two, three);
-
-// app.use('/') => .use() doesn't accept regEx, it's mostly used for middlewares
-// app.all('') => .all() accepts regEx & used routing
-// app.get("*", (req, res) => {
+// router.use('/') => .use() doesn't accept regEx, it's mostly used for middlewares
+// router.all('') => .all() accepts regEx & used routing
+// router.get("*", (req, res) => {
 //   res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
 // });
 app.all("*", (req, res) => {
   res.status(404);
   if (req.accepts("html")) {
-    res.sendFile(path.join(__dirname, "views", "404.html"));
+    res.sendFile(path.join(__dirname, "..", "views", "404.html"));
   } else if (req.accepts("json")) {
     res.json({ error: "404 Not Found" });
   } else {
